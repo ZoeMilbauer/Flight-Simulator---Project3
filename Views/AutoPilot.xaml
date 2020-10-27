@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="FlightSimulator.Views.AutoPilot"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FlightSimulator.Views"
+             xmlns:vm="clr-namespace:FlightSimulator.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400"
+             Height="450" Width="400">
+
+    <Grid Margin="0,0,10,-0.4">
+        <Canvas>
+            <Button Content="OK" Canvas.Left="47" Command="{Binding OkCommand}" Foreground="Teal" Canvas.Top="404" Width="117" Height="31" FontWeight="Bold" FontFamily="Tahoma">
+                <Button.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Offset="0" Color="MediumTurquoise" />
+                        <GradientStop Offset="1" Color="AliceBlue" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="Clear" Command="{Binding ClearCommand}" Canvas.Left="246" Foreground="Teal" Canvas.Top="404" Width="116" Height="31" FontWeight="Bold" FontFamily="Tahoma">
+                <Button.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Offset="0" Color="MediumTurquoise" />
+                        <GradientStop Offset="1" Color="AliceBlue" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <TextBox x:Name="userText" Text="{Binding UserText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding BackgroundColor, UpdateSourceTrigger=PropertyChanged}" Height="389" AcceptsReturn="True" TextWrapping="Wrap" Width="390" BorderBrush="Teal"/>
+        </Canvas>
+    </Grid>
+</UserControl>

@@ -1,0 +1,36 @@
+﻿<Window x:Class="FlightSimulator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:tabData="clr-namespace:FlightSimulator.Views"
+        xmlns:controls="clr-namespace:FlightSimulator.Views"
+        Title="Flight Simulator" Height="520" Width="800" Closing="Window_Closing">
+    <DockPanel>
+        <TabControl DockPanel.Dock="Right" Margin="0,0,0,-0.6" Width="396" RenderTransformOrigin="0.5,0.5">
+            <TabControl.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.229"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.796"/>
+                </TransformGroup>
+            </TabControl.RenderTransform>
+            <TabItem Header="Manual" FontFamily="Segoe UI Semilight" Background="WhiteSmoke" Margin="-2,-2,-13.6,0.2">
+                <controls:Joystick x:Name="joystick"></controls:Joystick>
+            </TabItem>
+            <TabItem x:Name="TabAuto" Header="Auto Pilot" FontFamily="Segoe UI Semilight" Background="WhiteSmoke" Margin="8.8,-2,-13.8,0">
+                <controls:AutoPilot x:Name="auto" Margin="0,0,-0.2,0" ></controls:AutoPilot>
+            </TabItem>
+        </TabControl>
+        <Grid DockPanel.Dock="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="61*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+            <tabData:FlightBoard x:Name="flightBoard" Grid.ColumnSpan="2" Margin="11,35,9.6,35.4"/>
+            <Button x:Name="connectButton" Content="Connect" Background="WhiteSmoke" FontWeight="Bold" FontFamily="Segoe UI Semilight" Command="{Binding ConnectCommand}" HorizontalAlignment="Left" Margin="84,10,0,0" VerticalAlignment="Top" Width="75">
+            </Button>
+            <Button Content="Settings" Click="SettingsWindow" Background="WhiteSmoke" FontWeight="Bold" FontFamily="Segoe UI Semilight" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.896,0.344">
+            </Button>
+        </Grid>
+    </DockPanel>
+</Window>
